@@ -1,5 +1,7 @@
 ﻿#include <stdio.h>
 #include <limits.h>
+#include <random>
+#include <time.h> 
 
 int main()
 {
@@ -24,5 +26,17 @@ int main()
 	}
 	printf("\nmax = %d, min = %d", max, min);
 	printf("\nResult = %d\n", max - min);
+
+	printf("\n");
+	srand(time(0));
+	int a[10] = { 0 };
+
+	for (int i = 0; i < 10; i++)
+	{
+		a[i] = rand() % 100;
+		printf("%d ", a[i]);
+	}
 	return 0;
 }
+
+

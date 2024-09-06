@@ -1,2 +1,3 @@
 ﻿  loglab1.cpp
+C:\Users\f96t\source\repos\loglab1\loglab1\loglab1.cpp(31,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   loglab1.vcxproj -> C:\Users\f96t\source\repos\loglab1\x64\Debug\loglab1.exe
