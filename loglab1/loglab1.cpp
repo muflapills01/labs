@@ -1,7 +1,10 @@
-﻿#include <stdio.h>
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
 #include <limits.h>
 #include <random>
-#include <time.h> 
+#include <time.h>
+#include <malloc.h>
+#include <stdlib.h>
 
 int main()
 {
@@ -36,6 +39,20 @@ int main()
 		a[i] = rand() % 100;
 		printf("%d ", a[i]);
 	}
+	
+	int* b; 
+	int i, n;
+	printf("\nSize: ");
+	scanf("%d", &n);
+	b = (int*)malloc(n * sizeof(int));
+	for (i = 0; i < n; i++)
+	{
+		printf("b[%d] = ", i);
+		scanf("%d", &b[i]);
+	}
+	for (i = 0; i < n; i++)
+		printf("%d ", b[i]);
+	free(b);
 	return 0;
 }
 
