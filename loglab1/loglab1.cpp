@@ -53,6 +53,28 @@ int main()
 	for (i = 0; i < n; i++)
 		printf("%d ", b[i]);
 	free(b);
+	printf("\n");
+	
+	int t,c[5][5];
+	int s = 0;
+	for (t = 0; t < 5; ++t) 
+		for (i = 0; i < 5; ++i)
+			c[t][i] = c[t][i] = i+1;
+	for (t = 0; t < 5; ++t)
+	{
+		for (i = 0; i < 5; ++i)
+			printf("%d  ", c[t][i]);
+		printf("\n");
+	}
+	for (t = 0; t < 5; ++t)
+	{
+		s = 0;
+		for (i = 0; i < 5; ++i)
+		{
+			s = s + c[t][i];
+		}
+			printf("\nSum = %d", s);
+	}
 	return 0;
 }
 
