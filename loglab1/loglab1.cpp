@@ -5,7 +5,10 @@
 #include <time.h>
 #include <malloc.h>
 #include <stdlib.h>
+#include <windows.h>
 
+int Nomzach;
+int par;
 int main()
 {
 	int x[10] = { 0 };
@@ -74,6 +77,94 @@ int main()
 			s = s + c[t][i];
 		}
 			printf("\nSum = %d", s);
+	}
+
+	SetConsoleOutputCP(1251);
+	SetConsoleCP(1251);
+	setvbuf(stdin, NULL, _IONBF, 0);
+	setvbuf(stdout, NULL, _IONBF, 0);
+	struct student
+	{
+		char famil[20];
+		char name[20], facult[20];
+		int Nomzach;
+	} stud[3];
+
+	for (i = 0;i < 3;i++)
+	{
+		printf("\n\nВведите фамилию студента\n"); scanf("%20s", stud[i].famil);
+	}
+	for (i = 0;i < 3;i++)
+	{
+		printf("Введите имя студента %s\n", stud[i].famil); scanf("%20s", stud[i].name);
+	}
+	for (i = 0;i < 3;i++)
+	{
+		printf("Введите название факультета студента %s %s\n", stud[i].famil, stud[i].name); scanf("%20s", stud[i].facult);
+	}
+	for (i = 0;i < 3;i++)
+	{
+		printf("Введите номер зачётной книжки студента %s %s\n", stud[i].famil, stud[i].name); scanf("%d", &stud[i].Nomzach);
+	}
+
+	for (i = 0;i < 3;i++)
+	{
+		printf("Cтудент %s %s обучается на факультете %s, номер зачётной книжки %d \n", stud[i].famil, stud[i].name,
+			stud[i].facult, stud[i].Nomzach);
+	}
+	char famil[20];
+	char name[20], facult[20];
+	
+
+	printf("\nВведите параметр поиска: 1 - фамилия, 2 - имя, 3 - факультет, 4 - номер зачетной книжки");
+	scanf("%d", &par);
+	if (par == 1)
+	{
+		printf("\nВведите фамилию студента\n"); scanf("%20s", famil);
+		for (i = 0;i < 3;i++)
+		{
+			if (strcmp(stud[i].famil,famil)==0) 
+			{
+				printf("Cтудент %s %s обучается на факультете %s, номер зачётной книжки %d \n", stud[i].famil, stud[i].name,
+					stud[i].facult, stud[i].Nomzach);
+			}
+		}
+	}
+	if (par == 2)
+	{
+		printf("\nВведите имя студента\n"); scanf("%20s", name);
+		for (i = 0;i < 3;i++)
+		{
+			if (strcmp(stud[i].name, name)==0)
+			{
+				printf("Cтудент %s %s обучается на факультете %s, номер зачётной книжки %d \n", stud[i].famil, stud[i].name,
+					stud[i].facult, stud[i].Nomzach);
+			}
+		}
+	}
+	if (par == 3)
+	{
+		printf("\nВведите факультет студента\n"); scanf("%20s", facult);
+		for (i = 0;i < 3;i++)
+		{
+			if (strcmp(stud[i].facult, facult)==0)
+			{
+				printf("Cтудент %s %s обучается на факультете %s, номер зачётной книжки %d \n", stud[i].famil, stud[i].name,
+					stud[i].facult, stud[i].Nomzach);
+			}
+		}
+	}
+	if (par == 4)
+	{
+		printf("\nВведите номер зачетной книжки студента\n"); scanf("%d", &Nomzach);
+		for (i = 0;i < 3;i++)
+		{
+			if (stud[i].Nomzach == Nomzach)
+			{
+				printf("Cтудент %s %s обучается на факультете %s, номер зачётной книжки %d \n", stud[i].famil, stud[i].name,
+					stud[i].facult, stud[i].Nomzach);
+			}
+		}
 	}
 	return 0;
 }
