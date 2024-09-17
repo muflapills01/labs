@@ -16,7 +16,7 @@ int main()
 
 	for (int i = 0; i < 10; i++)
 	{
-		x[i] = (i * 3) % 5;
+		x[i] = (i * 3) % 10 -5;
 		printf("%d ", x[i]);
 	}
 	for (int i = 0; i < 10; i++)
@@ -92,21 +92,12 @@ int main()
 
 	for (i = 0;i < 3;i++)
 	{
-		printf("\n\nВведите фамилию студента\n"); scanf("%20s", stud[i].famil);
+		printf("\n\nВведите фамилию студента %d\n", i+1); scanf("%20s", stud[i].famil);
+		printf("Введите имя студента %d %s\n", i+1,stud[i].famil); scanf("%20s", stud[i].name);
+		printf("Введите название факультета студента %d %s %s\n", i+1,stud[i].famil, stud[i].name); scanf("%20s", stud[i].facult);
+		printf("Введите номер зачётной книжки студента %d %s %s\n", i+1,stud[i].famil, stud[i].name); scanf("%d", &stud[i].Nomzach);
 	}
-	for (i = 0;i < 3;i++)
-	{
-		printf("Введите имя студента %s\n", stud[i].famil); scanf("%20s", stud[i].name);
-	}
-	for (i = 0;i < 3;i++)
-	{
-		printf("Введите название факультета студента %s %s\n", stud[i].famil, stud[i].name); scanf("%20s", stud[i].facult);
-	}
-	for (i = 0;i < 3;i++)
-	{
-		printf("Введите номер зачётной книжки студента %s %s\n", stud[i].famil, stud[i].name); scanf("%d", &stud[i].Nomzach);
-	}
-
+	
 	for (i = 0;i < 3;i++)
 	{
 		printf("Cтудент %s %s обучается на факультете %s, номер зачётной книжки %d \n", stud[i].famil, stud[i].name,
