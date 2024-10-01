@@ -1,0 +1,3 @@
+﻿  loglab2.cpp
+C:\Users\f96t\source\repos\loglab2\loglab2\loglab2.cpp(110,20): warning C4101: r: неиспользованная локальная переменная
+  loglab2.vcxproj -> C:\Users\f96t\source\repos\loglab2\x64\Debug\loglab2.exe
