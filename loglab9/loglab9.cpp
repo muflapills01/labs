@@ -1,0 +1,95 @@
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <conio.h>
+#include <random>
+#include <Windows.h>
+#include <time.h>
+#include <queue> 
+#include <iostream>
+#include <climits>
+
+using namespace std;
+
+std::queue <int> Q;
+void bfsd(int** G, int size, int s, int* dist)
+{
+    Q.push(s);
+    dist[s] = 0;
+    //printf("%d", s);
+
+    while (!Q.empty())
+    {
+        s = Q.front();
+        Q.pop();
+        for (int i = 0; i < size; i++)
+        {
+            if (G[s][i] == 1 && dist[s]+1 < dist[i])
+            {
+                Q.push(i);
+                dist[i] = dist[s]+1;
+                //printf("%d", i);
+            }
+        }
+
+    }
+
+}
+int** createG(int size)
+{
+    int** G = NULL;
+    G = (int**)malloc(size * sizeof(int*));
+    for (int i = 0; i < size; i++)
+        G[i] = (int*)malloc(size * sizeof(int));
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = i; j < size; j++)
+        {
+            G[i][j] = rand() % 2;
+            if (i == j)
+                G[i][j] = 0;
+            G[j][i] = G[i][j];
+        }
+    }
+    return G;
+}
+void printG(int** G, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            printf("% d", G[i][j]);
+        }
+        printf("\n");
+    }
+    return;
+}
+int main()
+{
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    srand(time(NULL));
+
+    int nG1 = 5;
+    int s = 0;
+    printf("Введите количество вершин G1: ");
+    scanf_s("%d", &nG1);
+
+    int** G1 = createG(nG1);
+    printf("Граф G1\n");
+    printG(G1, nG1);
+    printf("Введите стартовую вершину:\n");
+    scanf("%d", &s);
+ 
+    int* dist = (int*)malloc(nG1 * sizeof(int));
+    for (int i = 0; i < nG1; i++)
+        dist[i] = INT_MAX;
+    bfsd(G1, nG1, 0, dist);
+    printf("\n");
+    for (int i = 0; i < nG1; i++)
+    {
+        printf("Расстояние от %d до %d вершины = %d\n",s, i, dist[i]);
+    }
+}
+
+
