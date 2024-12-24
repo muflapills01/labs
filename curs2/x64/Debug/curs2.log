@@ -1,0 +1,4 @@
+﻿  curs2.cpp
+C:\Users\f96t\source\repos\curs2\curs2\curs2.cpp(34,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\f96t\source\repos\curs2\curs2\curs2.cpp(235,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  curs2.vcxproj -> C:\Users\f96t\source\repos\curs2\x64\Debug\curs2.exe
